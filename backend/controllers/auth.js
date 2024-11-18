@@ -1,10 +1,11 @@
-const express = require('express');
-const bcrypt = require('bcryptjs');
-const Usuario = require('../models/usuario');
-const jwt = require('jsonwebtoken');
+const express = require("express");
+const bcrypt = require("bcryptjs");
+const Usuario = require("../models/usuario");
+const jwt = require("jsonwebtoken");
 
 // Login de usuario
-const login = async (req, res) => { // No es necesario destructurar request y response
+const login = async (req, res) => {
+  // No es necesario destructurar request y response
   const { email, password } = req.body;
 
   try {
@@ -77,4 +78,11 @@ const register = async (req, res) => {
   }
 };
 
-module.exports = { login, register };
+// Logout de usuario
+const logout = (req, res) => {
+  res.json({
+    message: "Sesión cerrada correctamente.",
+  });
+};
+
+module.exports = { login, register, logout };

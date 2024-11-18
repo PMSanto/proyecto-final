@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const { check } = require("express-validator");
 const { validarCampos } = require("../middlewares/validar-campos");
-const { login, register } = require("../controllers/auth");
+const { login, register, logout } = require("../controllers/auth");
 
 const router = Router();
 
@@ -33,5 +33,8 @@ router.post(
   ],
   login // Controlador de login
 );
+
+// Ruta para cerrar sesión
+router.post("/logout", logout);
 
 module.exports = router;
